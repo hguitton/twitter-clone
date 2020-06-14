@@ -1,0 +1,5 @@
+= form_with(model: @post, local: true, html:{class: 'my-4'}) do |f|
+  .form-group
+    = f.text_area :body, placeholder: "Enter your message", class: "form-control", rows: 3
+  .actions
+    = f.submit class:"btn btn-primary"

@@ -1,0 +1,14 @@
+.card.mb-2
+  .card-body
+    h5.card-title.text-muted
+      = post.username
+      small = ' - ' + time_ago_in_words(post.created_at) + " ago"
+    .card-text.lead.mb-2 = post.body
+    = link_to '#', class: "card-link", data: { reflex: "click->PostsReflex#repost", id: post.id } do
+      | Retweet (
+      = tag.span(post.reposts_count, id: "post-#{post.id}-reposts")
+      |)
+    = link_to '#', class: "card-link", data: { reflex: "click->PostsReflex#like", id: post.id } do
+      | Like (
+      = tag.span(post.likes_count, id: "post-#{post.id}-likes")
+      |)
